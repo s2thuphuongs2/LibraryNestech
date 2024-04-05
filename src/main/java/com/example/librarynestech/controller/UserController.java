@@ -1,22 +1,42 @@
 package com.example.librarynestech.controller;
 
+
 import com.example.librarynestech.entity.User;
 import com.example.librarynestech.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.RequestEntity;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping
+@RestController
+@RequestMapping("api/user")
 @RequiredArgsConstructor
 public class UserController {
+    @Autowired
+    private UserService<User> userService;
 
-    /**
-     * {@code POST  /user} : Create a new user.
-     * @param userService the user to create.
-     * @return the {@link RequestEntity} with status {@code 201 (Created)} and with body the new user, or with status {@code 400 (Bad Request)} if the user has already an ID.
-     */
+    @GetMapping
+    public List<User> getAllUser(){
+        return userService.getAllUser();
+    }
+
+    @PostMapping
+    public User create(@RequestBody User input){
+        return userService.creat(input);
+    }
+
+    @PutMapping
+    public User saveUser(@RequestBody User newvalue){
+        return userService.saveUser(newvalue);
+    }
+    @DeleteMapping("/{id}")
+    public boolean deleteUser(Long id){
+        return userService.deleteUser(id);
+    }
+
 
 }

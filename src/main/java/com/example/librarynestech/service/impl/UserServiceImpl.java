@@ -11,8 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService<User> {
      @Autowired private userRepository userRepository;
+
+
+    @Override
+    public User creat(User input) {
+        return null;
+    }
 
     @Override
     public List<User> getAllUser() {
@@ -20,15 +26,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void saveUser(User user) {
+    public User saveUser(User user) {
         // TODO Auto-generated method stub
         userRepository.save(user);
+        return user;
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public boolean deleteUser(Long id) {
         // TODO Auto-generated method stub
         userRepository.deleteById(id);
+        return true;
     }
 
     @Override

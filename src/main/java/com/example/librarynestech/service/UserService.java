@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 import com.example.librarynestech.entity.User;
 
 @Service
-public interface UserService {
-    List<User> getAllUser();  
+public interface UserService<T> {
+    T creat(T input);
+    List<T> getAllUser();
 
-  void saveUser(User user);  
+  T saveUser(T newvalue);
 
-  void deleteUser(Long id);  
+   boolean deleteUser(Long id);
 
-  Optional<User> findUserById(Long id); 
+  Optional<T> findUserById(Long id);
 }
