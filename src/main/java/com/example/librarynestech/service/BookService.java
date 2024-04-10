@@ -2,6 +2,8 @@ package com.example.librarynestech.service;
 
 import com.example.librarynestech.entity.Book;
 
+import java.util.List;
+
 public interface BookService {
 
     public Book getBookById(Long id);
@@ -10,6 +12,6 @@ public interface BookService {
     public Book updateBook(Long bookId, Book updatedBook);
 
     public void deleteBook(Long bookId);
-
-    public Iterable<Book> getAllBooks();
+    // TODO: thay thành List
+    public List<Book> getAllBooks();
 }

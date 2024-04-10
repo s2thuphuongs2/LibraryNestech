@@ -14,7 +14,11 @@ import java.util.Date;
 @Getter @Setter
 @Table(name = "book_id")
 @AllArgsConstructor
+// TODO: Them empty constructor
 public class Book {
+    public Book() {
+        // Empty constructor
+    }
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -29,8 +33,7 @@ public class Book {
     private String image;
     private String description;
 
-    public Book() {
-    }
+
 
 
 }

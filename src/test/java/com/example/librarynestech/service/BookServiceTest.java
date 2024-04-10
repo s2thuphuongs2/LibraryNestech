@@ -1,7 +1,7 @@
 package com.example.librarynestech.service;
 
 import com.example.librarynestech.entity.Book;
-import com.example.librarynestech.repository.BookRepository;
+import com.example.librarynestech.Repository.BookRepository;
 import com.example.librarynestech.service.impl.BookServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
