@@ -33,14 +33,14 @@ public class UserServiceImpl implements UserService<User> {
     }
 
     @Override
-    public boolean deleteUser(Long id) {
+    public boolean deleteUser(String id) {
         // TODO Auto-generated method stub
         userRepository.deleteById(id);
         return true;
     }
 
     @Override
-    public Optional<User> findUserById(Long id) {
+    public Optional<User> findUserById(String id) {
         // TODO Auto-generated method stub
         return userRepository.findById(id);
     }  
