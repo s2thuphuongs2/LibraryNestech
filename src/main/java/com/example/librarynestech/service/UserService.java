@@ -13,7 +13,7 @@ public interface UserService<T> {
 
   T saveUser(T newvalue);
 
-   boolean deleteUser(Long id);
+   boolean deleteUser(String id);
 
-  Optional<T> findUserById(Long id);
+  Optional<T> findUserById(String id);
 }

@@ -34,7 +34,7 @@ public class UserController {
         return userService.saveUser(newvalue);
     }
     @DeleteMapping("/{id}")
-    public boolean deleteUser(Long id){
+    public boolean deleteUser(String id){
         return userService.deleteUser(id);
     }
 
