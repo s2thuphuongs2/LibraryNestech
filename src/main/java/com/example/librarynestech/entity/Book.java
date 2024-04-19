@@ -9,6 +9,9 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter @Setter
@@ -20,8 +23,8 @@ public class Book {
         // Empty constructor
     }
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private Long id;
     private String title;
     private String author;
@@ -33,7 +36,11 @@ public class Book {
     private String image;
     private String description;
 
-
-
-
+    @ManyToMany
+    @JoinTable(
+            name = "book_user",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> readers = new HashSet<>();
 }
